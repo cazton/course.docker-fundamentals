@@ -32,6 +32,42 @@
             },
             "stopAtEntry": false,
             "type": "coreclr"
+        },
+        {
+            "name": "Docker Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "compose-for-debug",
+            "cwd": "/app",
+            "program": "/app/MovieCatalog.Web.dll",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "container",
+                "ASPNETCORE_URLS": "http://+:4000",
+                "REMOTE_DEBUGGING": "true"
+            },
+            "sourceFileMap": {
+                "/": "${workspaceRoot}"
+            },
+            "launchBrowser": {
+                "enabled": true,
+                "args": "http://localhost:4000/api/values",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start http://localhost:4000/api/values"
+                },
+                "osx": {
+                    "command": "open"
+                }
+            },
+            "pipeTransport": {
+                "debuggerPath": "/vsdbg/vsdbg",
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "exec -i movie-catalog"
+                ],
+                "quoteArgs": false
+            }
         }
     ]
 }

@@ -3,6 +3,7 @@ version: '2'
 services:
 
   movie-catalog:
+    container_name: movie-catalog
     image: movie-catalog
     build: 
       context: .

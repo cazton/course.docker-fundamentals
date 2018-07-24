@@ -18,6 +18,7 @@ using MovieCatalog.Web.DataAccess.Entities;
 using MovieCatalog.Web.Infrastructure.Documentation;
 using MovieCatalog.Web.Infrastructure.Middleware;
 using MovieCatalog.Web.Models;
+using MoviesCatalog.Web.Infrastructure.Config;
 
 namespace MovieCatalog.Web.Infrastructure
 {
@@ -44,6 +45,9 @@ namespace MovieCatalog.Web.Infrastructure
             services.TryAddSingleton<MongoRepositoryConfig>(repositoryConfig);
             services.TryAddScoped<IRepository<Movie>, MongoRepository<Movie>>();
 
+            // Health checks
+            services.AddHealthChecks();
+            
             // Mvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -88,7 +92,6 @@ namespace MovieCatalog.Web.Infrastructure
             });
 
             app.UseMvc();
-            // app.UseAuthentication();movie
             app.UseSwagger();
             app.UseSwaggerUIVersions(versionDescriptionProvider);
 

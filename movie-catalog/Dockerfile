@@ -33,7 +33,6 @@ RUN dotnet publish -o /publish
 FROM base AS production
 
 LABEL MAINTAINER Christopher Town (chris@cdinc.net)
-ENV NUGET_XMLDOC_MODE skip
 
 # gather published output into /app
 WORKDIR /app

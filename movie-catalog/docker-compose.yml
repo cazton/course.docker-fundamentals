@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+
+  movie-catalog:
+    image: movie-catalog
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "4000:80"
+    networks:
+      - dev-network
+    tty: true
+    stdin_open: true
+
+networks:
+  dev-network:
+    driver: bridge

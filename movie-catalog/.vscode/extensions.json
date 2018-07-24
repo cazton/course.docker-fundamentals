@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "codezombiech.gitignore",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "ms-vscode.csharp",
+        "peterjausovec.vscode-docker",
+        "pflannery.vscode-versionlens",
+        "robertohuertasm.vscode-icons"
+    ]
+}

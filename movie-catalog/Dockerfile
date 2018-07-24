@@ -24,6 +24,8 @@ RUN apt-get update \
 FROM microsoft/dotnet:2.1-sdk AS builder
 ENV NUGET_XMLDOC_MODE skip
 
+# Copy nuget config
+COPY ./nuget.config ./nuget.config
 
 # publish
 COPY ./src /src
@@ -36,8 +38,6 @@ FROM base AS production
 
 LABEL MAINTAINER Christopher Town (chris@cdinc.net)
 ENV NUGET_XMLDOC_MODE skip
-ENV ASPNETCORE_URLS=http://+:4000
-EXPOSE 80
 
 # gather published output into /app
 WORKDIR /app

@@ -48,6 +48,6 @@
             "windows": {
                 "command": ".\\scripts\\project-tasks.ps1 -ComposeForDebug"
             }
-        },
+        }
     ]
 }

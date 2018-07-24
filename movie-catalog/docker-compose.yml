@@ -9,14 +9,29 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=container
+      - ASPNETCORE_URLS=http://+:4000
     ports:
-      - "4000:80"
+      - "4000:4000"
+    networks:
+      - dev-network
+    depends_on: 
+      - mongodb
+    tty: true
+    stdin_open: true
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    environment:
+      - BUILD_CONFIG=Debug
+    ports:
+      - "27017:27017"
     networks:
       - dev-network
     tty: true
     stdin_open: true
-
+    
 networks:
   dev-network:
     driver: bridge

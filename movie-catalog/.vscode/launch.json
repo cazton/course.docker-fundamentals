@@ -11,7 +11,7 @@
             },
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
-                "args": "http://localhost:4000/api/values",
+                "args": "http://localhost:4000/swagger",
                 "enabled": true,
                 "linux": {
                     "command": "xdg-open"
@@ -20,7 +20,7 @@
                     "command": "open"
                 },
                 "windows": {
-                    "args": "/C start http://localhost:4000/api/values",
+                    "args": "/C start http://localhost:4000/swagger",
                     "command": "cmd.exe"
                 }
             },
@@ -42,7 +42,7 @@
             "program": "/app/MovieCatalog.Web.dll",
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "container",
-                "ASPNETCORE_URLS": "http://+:4000",
+                "ASPNETCORE_URLS": "http://+:80",
                 "REMOTE_DEBUGGING": "true"
             },
             "sourceFileMap": {
@@ -50,10 +50,10 @@
             },
             "launchBrowser": {
                 "enabled": true,
-                "args": "http://localhost:4000/api/values",
+                "args": "http://localhost:4000/swagger",
                 "windows": {
                     "command": "cmd.exe",
-                    "args": "/C start http://localhost:4000/api/values"
+                    "args": "/C start http://localhost:4000/swagger"
                 },
                 "osx": {
                     "command": "open"

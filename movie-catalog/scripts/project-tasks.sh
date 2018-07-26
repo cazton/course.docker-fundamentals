@@ -106,8 +106,6 @@ compose () {
     echo -e "++++++++++++++++++++++++++++++++++++++++++++++++"
     echo -e "${RESTORE}"
 
-    buildImage
-
     composeFileName="docker-compose.yml"
     if [[ $ENVIRONMENT != "development" ]]; then
         composeFileName="docker-compose.$ENVIRONMENT.yml"
